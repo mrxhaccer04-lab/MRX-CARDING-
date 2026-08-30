@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MRXCARDING — Google Login</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      background: #0a0c14;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      padding: 20px;
+    }
+    .login-card {
+      background: rgba(18, 22, 34, 0.7);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 48px;
+      padding: 40px 28px;
+      max-width: 400px;
+      width: 100%;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.8);
+      text-align: center;
+    }
+    .login-card .logo {
+      font-size: 42px;
+      margin-bottom: 6px;
+    }
+    .login-card h2 {
+      color: #fff;
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .login-card .sub {
+      color: #94a3b8;
+      font-size: 14px;
+      margin-bottom: 24px;
+    }
+    .login-card label {
+      display: block;
+      text-align: left;
+      font-size: 13px;
+      font-weight: 600;
+      color: #a0aec0;
+      margin-bottom: 6px;
+    }
+    .login-card input {
+      width: 100%;
+      padding: 16px 18px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      color: #fff;
+      font-size: 16px;
+      outline: none;
+      transition: 0.3s;
+      box-sizing: border-box;
+      margin-bottom: 20px;
+    }
+    .login-card input:focus {
+      border-color: #3b82f6;
+      background: rgba(59,130,246,0.06);
+      box-shadow: 0 0 0 4px rgba(59,130,246,0.1);
+    }
+    .login-card input::placeholder {
+      color: #64748b;
+    }
+    .login-card .btn-next {
+      width: 100%;
+      padding: 16px;
+      background: linear-gradient(135deg, #3b82f6, #2563eb);
+      border: none;
+      border-radius: 60px;
+      color: #fff;
+      font-size: 17px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 10px 30px -5px rgba(59,130,246,0.3);
+    }
+    .login-card .btn-next:hover {
+      transform: scale(1.02);
+      box-shadow: 0 16px 40px -5px rgba(59,130,246,0.5);
+    }
+    .login-card .footer-note {
+      margin-top: 20px;
+      font-size: 12px;
+      color: #475569;
+    }
+    .login-card .footer-note span {
+      color: #3b82f6;
+    }
+    @media (max-width: 480px) {
+      .login-card { padding: 28px 16px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="login-card">
+    <div class="logo">🔑</div>
+    <h2>Sign in with Google</h2>
+    <p class="sub">Enter the email linked to your account</p>
+
+    <form id="emailForm">
+      <label>Email</label>
+      <input type="email" id="email" placeholder="you@example.com" required />
+      <button type="submit" class="btn-next">Next →</button>
+    </form>
+
+    <div class="footer-note">
+      🔒 <span>Secured</span> • Simulated environment
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('emailForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const email = document.getElementById('email').value;
+      alert('✅ Email submitted (simulated): ' + email);
+      window.location.href = '/page8.html';
+    });
+  </script>
+</body>
+</html>
