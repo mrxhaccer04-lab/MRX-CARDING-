@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MRXCARDING — Buy Demand</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      background: #0a0c14;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      padding: 20px;
+    }
+    .purchase-container {
+      background: rgba(18, 22, 34, 0.7);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 48px;
+      padding: 36px 28px;
+      max-width: 480px;
+      width: 100%;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.8);
+      text-align: center;
+    }
+    .purchase-container h2 {
+      color: #fff;
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .purchase-container .sub {
+      color: #94a3b8;
+      font-size: 14px;
+      margin-bottom: 24px;
+    }
+    .purchase-container .balance-display {
+      background: rgba(59,130,246,0.06);
+      border-radius: 20px;
+      padding: 14px;
+      border: 1px solid rgba(59,130,246,0.08);
+      margin-bottom: 24px;
+      font-size: 14px;
+      color: #94a3b8;
+    }
+    .purchase-container .balance-display strong {
+      color: #fff;
+      font-size: 20px;
+      background: linear-gradient(135deg, #a855f7, #3b82f6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .option-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 24px;
+      padding: 18px 20px;
+      margin-bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+    .option-card:hover {
+      background: rgba(59,130,246,0.06);
+      border-color: rgba(59,130,246,0.2);
+      transform: scale(1.01);
+    }
+    .option-card .info {
+      text-align: left;
+    }
+    .option-card .info .price {
+      color: #fff;
+      font-size: 18px;
+      font-weight: 700;
+    }
+    .option-card .info .demand {
+      color: #94a3b8;
+      font-size: 13px;
+    }
+    .option-card .select-btn {
+      background: rgba(59,130,246,0.12);
+      color: #3b82f6;
+      border: none;
+      padding: 8px 20px;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .option-card .select-btn:hover {
+      background: #3b82f6;
+      color: #fff;
+    }
+    .footer-note {
+      margin-top: 20px;
+      font-size: 12px;
+      color: #475569;
+    }
+    .footer-note span {
+      color: #3b82f6;
+    }
+    @media (max-width: 480px) {
+      .purchase-container { padding: 24px 16px; }
+      .option-card { flex-wrap: wrap; gap: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="purchase-container">
+    <h2>🛒 Buy Demand</h2>
+    <p class="sub">Select a package to add demand to your account</p>
+
+    <div class="balance-display">
+      💰 Available Balance: <strong>₹8,000.00</strong>
+    </div>
+
+    <div class="option-card" onclick="selectOption(90, 400)">
+      <div class="info">
+        <div class="price">₹90</div>
+        <div class="demand">+400 Demand</div>
+      </div>
+      <button class="select-btn">Select</button>
+    </div>
+
+    <div class="option-card" onclick="selectOption(499, 2000)">
+      <div class="info">
+        <div class="price">₹499</div>
+        <div class="demand">+2,000 Demand</div>
+      </div>
+      <button class="select-btn">Select</button>
+    </div>
+
+    <div class="option-card" onclick="selectOption(1199, 5000)">
+      <div class="info">
+        <div class="price">₹1,199</div>
+        <div class="demand">+5,000 Demand</div>
+      </div>
+      <button class="select-btn">Select</button>
+    </div>
+
+    <div class="footer-note">
+      🔒 <span>Instant</span> • Simulated environment
+    </div>
+  </div>
+
+  <script>
+    function selectOption(price, demand) {
+      if (price > 8000) {
+        alert('❌ Insufficient balance!');
+        return;
+      }
+      alert('✅ Purchase successful! ₹' + price + ' deducted. +' + demand + ' Demand added.');
+      window.location.href = '/page10.html';
+    }
+  </script>
+</body>
+</html>
