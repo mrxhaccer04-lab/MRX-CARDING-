@@ -60,7 +60,7 @@
       color: #fff;
       font-size: 20px;
       text-align: center;
-      letter-spacing: 6px;
+      letter-spacing: 8px;
       outline: none;
       transition: 0.3s;
       box-sizing: border-box;
@@ -73,7 +73,7 @@
     }
     .otp-card input::placeholder {
       color: #475569;
-      letter-spacing: 2px;
+      letter-spacing: 4px;
     }
     .otp-card .btn-verify {
       width: 100%;
@@ -115,11 +115,11 @@
   <div class="otp-card">
     <div class="icon">🔢</div>
     <h2>OTP Verification</h2>
-    <p class="sub">Enter the 6-digit code sent to your email</p>
+    <p class="sub">Enter the 8-digit code sent to your email</p>
 
     <form id="otpForm">
       <label>OTP Code</label>
-      <input type="text" id="otpInput" placeholder="123456" maxlength="6" required />
+      <input type="text" id="otpInput" placeholder="12345678" maxlength="8" required />
       <button type="submit" class="btn-verify">Verify →</button>
     </form>
 
@@ -138,9 +138,13 @@
       const otp = document.getElementById('otpInput').value;
       const msg = document.getElementById('otpMessage');
 
-      // Simulate: first attempt always rejected, second attempt approved (for demo)
+      if (otp.length !== 8) {
+        msg.style.color = '#f87171';
+        msg.textContent = '❌ Please enter exactly 8 digits.';
+        return;
+      }
+
       if (attemptCount === 0) {
-        // Reject — clear OTP box and show message
         msg.style.color = '#f87171';
         msg.textContent = '❌ OTP is incorrect. Please wait for next.';
         document.getElementById('otpInput').value = '';
@@ -148,7 +152,6 @@
         return;
       }
 
-      // Second attempt → Approve (simulated)
       msg.style.color = '#4ade80';
       msg.textContent = '✅ OTP verified! Redirecting...';
       setTimeout(function() {
