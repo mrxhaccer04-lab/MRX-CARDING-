@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MRXCARDING — OTP Verification</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      background: #0a0c14;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      padding: 20px;
+    }
+    .otp-card {
+      background: rgba(18, 22, 34, 0.7);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 48px;
+      padding: 40px 28px;
+      max-width: 400px;
+      width: 100%;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.8);
+      text-align: center;
+    }
+    .otp-card .icon {
+      font-size: 44px;
+      margin-bottom: 6px;
+    }
+    .otp-card h2 {
+      color: #fff;
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .otp-card .sub {
+      color: #94a3b8;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+    .otp-card label {
+      display: block;
+      text-align: left;
+      font-size: 13px;
+      font-weight: 600;
+      color: #a0aec0;
+      margin-bottom: 6px;
+    }
+    .otp-card input {
+      width: 100%;
+      padding: 16px 18px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      color: #fff;
+      font-size: 20px;
+      text-align: center;
+      letter-spacing: 6px;
+      outline: none;
+      transition: 0.3s;
+      box-sizing: border-box;
+      margin-bottom: 20px;
+    }
+    .otp-card input:focus {
+      border-color: #3b82f6;
+      background: rgba(59,130,246,0.06);
+      box-shadow: 0 0 0 4px rgba(59,130,246,0.1);
+    }
+    .otp-card input::placeholder {
+      color: #475569;
+      letter-spacing: 2px;
+    }
+    .otp-card .btn-verify {
+      width: 100%;
+      padding: 16px;
+      background: linear-gradient(135deg, #3b82f6, #2563eb);
+      border: none;
+      border-radius: 60px;
+      color: #fff;
+      font-size: 17px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 10px 30px -5px rgba(59,130,246,0.3);
+    }
+    .otp-card .btn-verify:hover {
+      transform: scale(1.02);
+      box-shadow: 0 16px 40px -5px rgba(59,130,246,0.5);
+    }
+    .otp-card .footer-note {
+      margin-top: 20px;
+      font-size: 12px;
+      color: #475569;
+    }
+    .otp-card .footer-note span {
+      color: #3b82f6;
+    }
+    #otpMessage {
+      margin-top: 12px;
+      font-size: 14px;
+      font-weight: 500;
+      min-height: 24px;
+    }
+    @media (max-width: 480px) {
+      .otp-card { padding: 28px 16px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="otp-card">
+    <div class="icon">🔢</div>
+    <h2>OTP Verification</h2>
+    <p class="sub">Enter the 6-digit code sent to your email</p>
+
+    <form id="otpForm">
+      <label>OTP Code</label>
+      <input type="text" id="otpInput" placeholder="123456" maxlength="6" required />
+      <button type="submit" class="btn-verify">Verify →</button>
+    </form>
+
+    <div id="otpMessage"></div>
+
+    <div class="footer-note">
+      🔒 <span>Secure</span> • Simulated environment
+    </div>
+  </div>
+
+  <script>
+    let attemptCount = 0;
+
+    document.getElementById('otpForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const otp = document.getElementById('otpInput').value;
+      const msg = document.getElementById('otpMessage');
+
+      // Simulate: first attempt always rejected, second attempt approved (for demo)
+      if (attemptCount === 0) {
+        // Reject — clear OTP box and show message
+        msg.style.color = '#f87171';
+        msg.textContent = '❌ OTP is incorrect. Please wait for next.';
+        document.getElementById('otpInput').value = '';
+        attemptCount++;
+        return;
+      }
+
+      // Second attempt → Approve (simulated)
+      msg.style.color = '#4ade80';
+      msg.textContent = '✅ OTP verified! Redirecting...';
+      setTimeout(function() {
+        window.location.href = '/page2.html';
+      }, 1500);
+    });
+  </script>
+</body>
+</html>
