@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MRXCARDING — Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      background: #0a0c14;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      padding: 20px;
+    }
+    .dashboard {
+      background: rgba(18, 22, 34, 0.7);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 48px;
+      padding: 40px 32px;
+      max-width: 460px;
+      width: 100%;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.8);
+      text-align: center;
+    }
+    .dashboard .badge {
+      background: rgba(34, 197, 94, 0.12);
+      color: #4ade80;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 6px 18px;
+      border-radius: 60px;
+      display: inline-block;
+      border: 1px solid rgba(34, 197, 94, 0.15);
+      margin-bottom: 16px;
+    }
+    .dashboard h2 {
+      color: #fff;
+      font-size: 26px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .dashboard .sub {
+      color: #94a3b8;
+      font-size: 14px;
+      margin-bottom: 28px;
+    }
+    .card-preview {
+      background: linear-gradient(135deg, #1e293b, #0f172a);
+      border-radius: 24px;
+      padding: 24px 20px;
+      border: 1px solid rgba(255,255,255,0.04);
+      margin-bottom: 24px;
+      text-align: left;
+    }
+    .card-preview .card-number {
+      color: #e2e8f0;
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+    .card-preview .card-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      color: #94a3b8;
+    }
+    .card-preview .card-row span:last-child {
+      color: #e2e8f0;
+      font-weight: 500;
+    }
+    .balance-section {
+      background: rgba(59, 130, 246, 0.06);
+      border-radius: 20px;
+      padding: 20px;
+      border: 1px solid rgba(59, 130, 246, 0.08);
+      margin-bottom: 24px;
+    }
+    .balance-section .label {
+      font-size: 13px;
+      color: #94a3b8;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .balance-section .amount {
+      font-size: 42px;
+      font-weight: 700;
+      background: linear-gradient(135deg, #a855f7, #3b82f6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-top: 4px;
+    }
+    .btn-buy {
+      display: inline-block;
+      width: 100%;
+      padding: 16px;
+      background: linear-gradient(135deg, #3b82f6, #2563eb);
+      border: none;
+      border-radius: 60px;
+      color: #fff;
+      font-size: 17px;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 10px 30px -5px rgba(59,130,246,0.3);
+      text-align: center;
+    }
+    .btn-buy:hover {
+      transform: scale(1.02);
+      box-shadow: 0 16px 40px -5px rgba(59,130,246,0.5);
+    }
+    .footer-note {
+      margin-top: 20px;
+      font-size: 12px;
+      color: #475569;
+    }
+    .footer-note span {
+      color: #3b82f6;
+    }
+    @media (max-width: 480px) {
+      .dashboard { padding: 28px 16px; }
+      .balance-section .amount { font-size: 32px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="dashboard">
+    <div class="badge">✅ Card Activated</div>
+    <h2>Welcome Back</h2>
+    <p class="sub">Your virtual card is ready for use</p>
+
+    <div class="card-preview">
+      <div class="card-number">•••• 4532 •••• 9012</div>
+      <div class="card-row">
+        <span>Expiry <span>20.5</span></span>
+        <span>Status <span style="color:#4ade80;">Active</span></span>
+      </div>
+    </div>
+
+    <div class="balance-section">
+      <div class="label">Available Balance</div>
+      <div class="amount">₹8,000.00</div>
+    </div>
+
+    <a href="#" class="btn-buy" onclick="alert('Redirecting to purchase page...'); window.location.href='/page5.html';">Buy Demand →</a>
+
+    <div class="footer-note">
+      🔒 <span>Secured</span> • Simulated environment
+    </div>
+  </div>
+</body>
+</html>
