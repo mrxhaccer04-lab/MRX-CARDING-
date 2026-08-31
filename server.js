@@ -3,14 +3,15 @@ const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Saari HTML, CSS aur JS files ko serve karo
+// Sabse Important Line: Ye saari files (html, css, images) ko serve karegi
 app.use(express.static(path.join(__dirname, '.')));
 
-// Routes
+// Route for Index
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
+// Routes for other pages
 app.get('/page2', (req, res) => {
     res.sendFile(path.join(__dirname, 'page2.html'));
 });
@@ -19,7 +20,33 @@ app.get('/page3', (req, res) => {
     res.sendFile(path.join(__dirname, 'page3.html'));
 });
 
-// ... Aise hi baaki pages (page4, page5, etc.) ke liye bhi likho
+app.get('/page4', (req, res) => {
+    res.sendFile(path.join(__dirname, 'page4.html'));
+});
+
+app.get('/page5', (req, res) => {
+    res.sendFile(path.join(__dirname, 'page5.html'));
+});
+
+app.get('/page6', (req, res) => {
+    res.sendFile(path.join(__dirname, 'page6.html'));
+});
+
+app.get('/page7', (req, res) => {
+    res.sendFile(path.join(__dirname, 'page7.html'));
+});
+
+app.get('/page8', (req, res) => {
+    res.sendFile(path.join(__dirname, 'page8.html'));
+});
+
+app.get('/page9', (req, res) => {
+    res.sendFile(path.join(__dirname, 'page9.html'));
+});
+
+app.get('/page10', (req, res) => {
+    res.sendFile(path.join(__dirname, 'page10.html'));
+});
 
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
